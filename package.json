@@ -1,0 +1,12 @@
+{
+    "name": "AngularJS",
+    "version": "0.1.0",
+    "description": "AngularJS with Gulp",
+    "dependencies": {
+        "gulp": "*",
+        "gulp-concat": "*",
+        "gulp-uglify": "*",
+        "gulp-minify": "*",
+        "gulp-minify-css": "*"
+    }
+}

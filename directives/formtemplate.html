@@ -1,0 +1,510 @@
+<div class="form-group margin-bottom-0">
+
+    <!-- Column Sizing -->
+    <form role="form"> 
+        <div class="row">
+            <div class="col-lg-3 col-md-12">
+            <button class="custom-close-btn" ng-click="customFilterdelete($event)"><i class="fa fa-close"></i></button>
+                <label class="form-label" for="{{::field}}">{{::label}}</label>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="form-group" ng-if="option == 'option1'">
+                    <select class="form-control date-function {{::field}}-function" name="option1" ng-model="scope[fieldval]" ng-change="showInput(scope[fieldval])">
+                        <option ng-selected="true"  value="">Select Value</option>
+                        <option value="Equal">Equal</option>
+                        <option value="Before">Before</option>
+                        <option value="After">After</option>
+                        <option value="Between">Between</option>
+                        <option value="Last">Last</option>
+                        <option value="Year to Date">Year to Date</option>
+                        <option value="Quarter to Date">Quarter to Date</option>
+                        <option value="Month to Date">Month to Date</option>
+                        <option value="Today">Today</option>
+                    </select>
+                </div>
+
+<!--                <div class="form-group" ng-if="option == 'option2'">
+                    <select class="form-control date-function {{::field}}-function" name="option3" ng-model="scope[fieldval]" ng-change="showInput(scope[fieldval])">
+                        <option ng-selected="true"  value="">Select Value</option>
+                        <option ng-option value="TRUE">Yes</option>
+                        <option ng-option value="FALSE">No</option>
+                    </select>
+                </div>-->
+
+                <div class="form-group" ng-if="option == 'option3'">
+                    <select class="form-control date-function {{::field}}-function" name="option4" ng-model="scope[fieldval]" ng-change="showInput(scope[fieldval])">
+                        <option ng-selected="true"  value="" >Select Value</option>
+                        <option ng-option value="-NA-">-NA-</option>
+                         <option ng-option value="$0 to $100">$0 - $100M</option>
+                        <option ng-option value="$100 to $250">$100M - $250M</option>
+                        <option ng-option value="$250 to $500">$250M- $500M</option>
+                        <option ng-option value="$500 to $1000">$500M - $1,000M</option>
+                        <option ng-option value="$1000 to $5000">$1,000M - $5,000M</option>
+                        <option ng-option value="$5000 to $10000">$5,000M - $10,000M</option>
+                        <option ng-option value="$10000+">$10,000M+</option>
+
+                    </select>
+                </div>
+
+                <div class="form-group" ng-if="option == 'option4'">
+                    <select class="form-control {{::field}}-function" name="option5" ng-model="scope[fieldval]" ng-change="showInput(scope[fieldval])">
+                        <option ng-selected="true"  value="">Select Value</option>
+                        <option ng-option value="Starts With">Starts With</option>
+                        <option ng-option value="Contains">Contains</option>
+                        <option ng-option value="Does not Contains">Does not Contains</option>
+                        <option ng-option value="Includes any">Includes any</option>
+                        <option ng-option value="Does not Include">Does not Include</option>
+                    </select>
+                </div>
+                <div class="form-group" ng-if="option == 'option5'">
+                    <select class="form-control date-function {{::field}}-function" name="option6" ng-model="scope[fieldval]" ng-change="showInput(scope[fieldval])">
+                        <option ng-selected="true"  value="">Select Value</option>
+                        <option ng-option value="Includes all">Includes all</option>
+                        <option ng-option value="Includes any">Includes any</option>
+                        <option ng-option value="Does not Include">Does not Include</option>
+                    </select>
+                </div>
+                <div class="form-group" ng-if="option == 'option6'">
+                    <select class="form-control deal-value-select" name="option2" ng-model="scope[fieldval]" ng-change="showInput(scope[fieldval])">
+                        <option ng-selected="true"  value="">Select Value</option>
+                        <option ng-option value="Equals">Equals</option>
+                        <option ng-option value="Does not Equal">Does not Equal</option>
+                        <option ng-option value="Greter Than">Greter Than</option>
+                        <option ng-option value="Less Than">Less Than</option>
+                        <option ng-option value="Betweenint">Between</option>
+                    </select>
+                </div>
+
+
+
+            </div>
+             
+            
+                
+            <div class="col-md-5 col-lg-4">
+                <div class="box last" ng-if="option == 'dealSizeOptions'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group"> 
+                                <select class="form-control" ng-model="obj.filtervalue1" >
+                                    <option ng-selected="true"  value="">Select Value</option> 
+                                    <option ng-option ng-repeat="dealSize in DEAL_SIZE" value="{{dealSize.id}}">{{dealSize.name}}</option>
+                                </select>
+<!--                                <select class="form-control" ng-model="obj.filtervalue1" >
+                                <option ng-selected="true"  value="" >Select Value</option>
+                                <option ng-option value="-NA-">-NA-</option>
+                                <option ng-option value="$0 to $100">$0 - $100M</option>
+                                <option ng-option value="$100 to $250">$100M - $250M</option>
+                                <option ng-option value="$250 to $500">$250M- $500M</option>
+                                <option ng-option value="$500 to $1000">$500M - $1,000M</option>
+                                <option ng-option value="$1000 to $5000">$1,000M - $5,000M</option>
+                                <option ng-option value="$5000 to $10000">$5,000M - $10,000M</option>
+                                <option ng-option value="$10000+">$10,000M+</option>
+                                </select>-->
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <div class="form-group" ng-if="option == 'option2'">
+                    <select class="form-control date-function" name="option3" ng-model="obj.filtervalue1">
+                        <option ng-selected="true"  value="">Select Value</option>
+                        <option ng-option value="TRUE">Yes</option>
+                        <option ng-option value="FALSE">No</option>
+                    </select>
+            </div>
+                <div class="box last" ng-if="option == 'anyFinancialAdvisorInvolvement'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input data-type="FinancialAdvisor"  ui-select2="select2Options" ng-model="obj.filtervalue1" style="width:200px" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box last" ng-if="option == 'anyBankerInvolvement'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input  data-type="Banker"  ui-select2="select2Options" ng-model="obj.filtervalue1" style="width:200px" />
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box last" ng-if="option == 'anyCompanyInvolvement'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input   data-type="MasterCompany"  ui-select2="select2Options" ng-model="obj.filtervalue1" style="width:200px;z-index:1" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box last" ng-if="option == 'anyGeneralIndustry'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input data-type="GeneralIndustry"  ui-select2="select2Options" ng-model="obj.filtervalue1" style="width:200px;z-index:1" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box last" ng-if="option == 'dealAcqTechnique'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" ng-model="obj.filtervalue1" >
+                                    <option ng-selected="true"  value="">Select Value</option> 
+                                    <option ng-option ng-repeat="acqTechnique1 in list" value="{{acqTechnique1.id}}">{{acqTechnique1.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box last" ng-if="option == 'dealStatusName'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" ng-model="obj.filtervalue1">
+                                    <option ng-selected="true"  value="">Select Value</option> 
+                                    <option ng-option ng-repeat="dealStatus in list" value="{{dealStatus.code}}">{{dealStatus.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box last" ng-if="option == 'dealStatusCode'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" ng-model="obj.filtervalue1">
+                                    <option ng-selected="true"  value="">Select Value</option> 
+                                    <option ng-option ng-repeat="dealStatus in list" value="{{dealStatus.code}}">{{dealStatus.code}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box last" ng-if="option == 'dealAttitudeName'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" ng-model="obj.filtervalue1">
+                                    <option ng-selected="true"  value="">Select Value</option> 
+                                    <option ng-option ng-repeat="dealAtitude in list" value="{{dealAtitude.code}}">{{dealAtitude.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box last" ng-if="option == 'dealAttitudeCode'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" ng-model="obj.filtervalue1">
+                                    <option ng-selected="true"  value="">Select Value</option> 
+                                    <option ng-option ng-repeat="dealAtitude in list" value="{{dealAtitude.code}}">{{dealAtitude.code}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box last" ng-if="option == 'dealSponsorRole'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" ng-model="obj.filtervalue1">
+                                    <option ng-selected="true"  value="">Select Value</option> 
+                                    <option ng-option ng-repeat="spoRole in list" value="{{spoRole}}">{{spoRole}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box last" ng-if="option == 'countryName'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" ng-model="obj.filtervalue1" data-live-search="true">
+                                    <option ng-selected="true"  value="">Select Value</option> 
+                                    <option ng-option ng-repeat="country in COUNTRY" value="{{country.name}}">{{country.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box last" ng-if="option == 'countryCode'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" ng-model="obj.filtervalue1">
+                                    <option ng-selected="true"  value="">Select Value</option> 
+                                    <option ng-option ng-repeat="country in list" value="{{country.code}}">{{country.code}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box last" ng-if="option == 'regionName'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" ng-model="obj.filtervalue1" data-live-search="true">
+                                    <option ng-selected="true"  value="">Select Value</option> 
+                                    <option ng-option ng-repeat="region in REGION" value="{{region.name}}">{{region.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box last" ng-if="option == 'macroIndustry'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" ng-model="obj.filtervalue1" data-live-search="true">
+                                   <option ng-selected="true"  value="">Select Value</option> 
+                                   <option ng-option ng-repeat="macroIn in list" value="{{macroIn.name}}">{{macroIn.name}}</option>
+                               </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box last" ng-if="option == 'midIndustry'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" ng-model="obj.filtervalue1" data-live-search="true">
+                                   <option ng-selected="true"  value="">Select Value</option> 
+                                   <option ng-option ng-repeat="macroIn in list" value="{{macroIn.name}}">{{macroIn.name}}</option>
+                               </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box last" ng-if="option == 'consiOffered'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" ng-model="obj.filtervalue1">
+                                    <option ng-selected="true"  value="">Select Value</option> 
+                                    <option ng-option ng-repeat="offered in list" value="{{offered.name}}">{{offered.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box last" ng-if="option == 'consiSought'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" ng-model="obj.filtervalue1">
+                                    <option ng-selected="true"  value="">Select Value</option> 
+                                    <option ng-option ng-repeat="sought in list" value="{{sought.name}}">{{sought.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box last" ng-if="option == 'formOfTransName'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" ng-model="obj.filtervalue1">
+                                    <option ng-selected="true"  value="">Select Value</option> 
+                                    <option ng-option ng-repeat="formOfTrans in list" value="{{formOfTrans.name}}">{{formOfTrans.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box last" ng-if="option == 'formOfTransCode'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" ng-model="obj.filtervalue1">
+                                    <option ng-selected="true"  value="">Select Value</option> 
+                                    <option ng-option ng-repeat="formOfTrans in list" value="{{formOfTrans.code}}">{{formOfTrans.code}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box last" ng-if="option == 'considrationStructure'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" ng-model="obj.filtervalue1">
+                                    <option ng-selected="true"  value="">Select Value</option> 
+                                    <option ng-option ng-repeat="consiStructure in list" value="{{consiStructure}}">{{consiStructure}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box last" ng-if="option == 'primarySIC'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                               
+                                <select class="form-control" ng-model="obj.filtervalue1">
+                                    <option ng-selected="true"  value="">Select Value</option> 
+                                    <option  ng-repeat="priSIC in list" value="{{priSIC.id}}">{{priSIC.name}}</option>
+                                </select>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box last" ng-if="option == 'option16'">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" ng-model="obj.filtervalue1">
+                                    <option ng-selected="true"  value="">Select Value</option>
+                                    <optgroup label="Crop Production">
+                                        <option ng-option value="111110">Soybean Farming</option>
+                                        <option ng-option value="111120">Oilseed (except Soybean) Farming</option>
+                                        <option ng-option value="111130">Dry Pea and Bean Farming</option>
+                                        <option ng-option value="111140">Wheat Farming</option>
+                                        <option ng-option value="111150">Corn Farming</option>
+                                        <option ng-option value="111160">Rice Farming</option>
+
+                                    </optgroup>
+                                    <optgroup label=" Animal Production and Aquaculture">
+                                        <option ng-option value="112111">Beef Cattle Ranching and Farming</option>
+                                        <option ng-option value="112112">Cattle Feedlots</option>
+                                        <option ng-option value="112120">Dairy Cattle and Milk Production</option>
+                                        <option ng-option value="112210">Hog and Pig Farming</option>
+                                        <option ng-option value="112310">Chicken Egg Production</option>
+                                        <option ng-option value="112320">Broilers and Other Meat Type Chicken Production </option>
+                                    </optgroup>
+                                    <optgroup label="Forestry and Logging">
+                                        <option ng-option value="113110">Timber Tract Operations</option>
+                                        <option ng-option value="113210">Forest Nurseries and Gathering of Forest Products</option>
+                                        <option ng-option value="113310">Logging</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box equals" ng-if="showEquals">
+                    <fieldset class="form-group">
+                        <div class="input-group date" datetimepicker ng-model="obj.filtervalue1">
+                            <input type="text" class="form-control" />
+                            <span class="input-group-addon"> <span class="fa fa-calendar"></span> </span>
+                        </div>
+                       <!-- <small class="text-muted"ng-model="showEquals">Date mask input: 0000-00-00</small>-->
+                    </fieldset>
+                </div>
+                <div class="box before" ng-if="showBefore">
+                    <fieldset class="form-group">
+                        <div class="input-group date" datetimepicker ng-model="obj.filtervalue1">
+                            <input type="text" class="form-control">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        </div>
+                        <!--<small class="text-muted">Date mask input: 0000-00-00</small>-->
+                    </fieldset>
+                </div>
+                <div class="box after" ng-if="showAfter">
+                    <fieldset class="form-group">
+                        <div class="input-group date" datetimepicker ng-model="obj.filtervalue1">
+                            <input type="text" class="form-control">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        </div>
+                        <!--<small class="text-muted">Date mask input: 0000-00-00</small>-->
+                    </fieldset>
+                </div>
+                <div class="box between" ng-if="showBetween">
+                    <div class="row">
+                        <fieldset class="form-group">
+                            <div class="col-md-6 between-value col-sm-6">
+                                <div class="input-group date" datetimepicker ng-model="obj.filtervalue1">
+                                    <input type="text" class="form-control">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                            <!--<div class="col-md-2 text-center padding-top-10"> to </div>-->
+                            <div class="col-md-6 between-value col-sm-6">
+                                <div class="input-group date" datetimepicker ng-model="obj.filtervalue2">
+                                    <input type="text" class="form-control">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class="box Betweenint" ng-if="showBetweenint">
+                    <div class="row">
+                        <fieldset class="form-group">
+                            <div class="col-md-6">
+                            <div class="row">
+                                <div class="input-group">
+                                    <input type="text" class="form-control datepicker" id="" ng-model="obj.filtervalue1"></div>
+                                </div>
+                            </div>
+                    
+                    
+                    <div class="col-md-6">
+                    <div class="row">
+                        <div class="input-group">
+                            <input type="text" class="form-control datepicker" id="" ng-model="obj.filtervalue2"></div>
+                        </div>
+                    </div>
+                    </fieldset>
+                    </div>
+                </div>
+
+
+                <div class="box last" ng-if="showLast">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="number" class="form-control" placeholder="1" min="1" ng-model="obj.filtervalue1">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select  ng-init="obj.filtervalue2 = 'Years'"  class="form-control" ng-model="obj.filtervalue2">
+                                    <option  ng-selected="true">Years</option>
+                                    <option>Quarter</option>
+                                    <option>Month</option>
+                                    <option>Year to Date</option>
+                                    <option>Quarter to Date</option>
+                                    <option >Month to Date</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box YTD" ng-if="showNull">
+                </div>
+                <div class="box textblock" ng-if="showText">
+                    <fieldset class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="" ng-model="obj.filtervalue1">
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="box textblock" ng-if="showNumber">
+                    <fieldset class="form-group">
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="" ng-model="obj.filtervalue1">
+                        </div>
+                    </fieldset>
+                </div>
+
+            </div>
+            <div class="col-md-3 col-lg-2">
+                <div class="form-group">
+                    <button class="btn width-full btn-sm" ng-click="saveFilter()">Enter</button>
+                 
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- End Column Sizing -->
+</div>
+ 

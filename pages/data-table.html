@@ -1,0 +1,49 @@
+<div class="page-content-inner" ng-controller="dataTableCtrl">
+    <div class="row">
+        <div class="filter-selection">
+            <div class="col-xl-12">
+                <div class="row">
+                    <div class="title-header col-lg-12">
+                        <a href="javascript:history.back()" title="Back" class="btn btn-secondary-outline margin-inline pull-left"><i class="fa fa-angle-left"></i></a>
+                        <h1 class="pull-left">{{reportTypeName}} Deal Report</h1>
+                        <div class="col-md-2 pull-right">
+                            <div class="row">
+                                <div class="form-group">
+                                    <select class="form-control" ng-model="obj.filtervalue1">
+                    <option ng-selected="true"  value="">Popular</option>
+                    <option ng-option>option 1</option>
+                    <option ng-option>option 2</option>
+                    <option ng-option>option 3</option>
+                  </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-xl-12">
+                        <div class="widget widget-two">
+                            <div class="widget-header table-header"> <span class="text-truncate text-nowrap table-heading">{{reportTypeName}} Deal Report </span>
+                                <div class="export-btn-holder">
+                                    <a target="_blank" href="../public/api/deal-report-export?data={{requestObject| escape}}&fields={{tableFields| escape}}&type=csv" class=" btn btn-secondary-outline CSV-file"><img src="assets/common/img/CSV-icon.png" alt=""> </a>
+                                    <a target="_blank" href="../public/api/deal-report-export?data={{requestObject| escape}}&fields={{tableFields| escape}}&type=pdf" class="btn btn-secondary-outline __web-inspector-hide-shortcut__ PDF-file"> <img src="assets/common/img/pdf-icon.png" alt=""></a>
+                                    <a target="_blank" href="../public/api/deal-report-export?data={{requestObject| escape}}&fields={{tableFields| escape}}&type=xls" class="btn btn-secondary-outline __web-inspector-hide-shortcut__ XLS-file"><img src="assets/common/img/XLS-icon.png" alt=""> </a>
+                                </div>
+                            </div>
+                            <div class="widget-body clearfix">
+                                <div class="table-responsive" ng-if="ajaxError==true"> <span>
+                  <h3>Something went wrong, Try again.</h3>
+                  </span> </div>
+                                <div class="table-responsive" ng-if="ajaxError==false">
+                                    <div ng-controller="getDataTable as showCase">
+                                        <table class="table table-hover nowrap row-border hover" datatable="" dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns">
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
